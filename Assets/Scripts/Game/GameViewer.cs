@@ -7,11 +7,6 @@ public class GameViewer : MonoBehaviour
         GameManager.Instance.Setup();
     }
 
-    private void Update()
-    {
-        
-    }
-
     private void OnDestroy()
     {
         GameManager.Instance.Dispose();
