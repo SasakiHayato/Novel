@@ -61,3 +61,7 @@ crashlytics-build.properties
 .vsconfig
 UserSettings/EditorUserSettings.asset
 UserSettings/
+
+# Font
+/[Aa]ssets/Font/
+/[Aa]ssets/Font.meta
