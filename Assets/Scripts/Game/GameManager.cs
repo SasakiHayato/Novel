@@ -9,6 +9,8 @@ public class GameManager
 
     Dictionary<string, ManagerBase> _managerDic;
 
+    public string UserName { get; set; }
+
     public void Setup()
     {
         _managerDic = new Dictionary<string, ManagerBase>();
