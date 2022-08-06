@@ -8,7 +8,7 @@ public class SheetGetter : MonoBehaviour
         requester.Request(this);
     }
 
-    void Get(SheetData data)
+    void Get(SheetModel data)
     {
         Debug.Log(data);
     }

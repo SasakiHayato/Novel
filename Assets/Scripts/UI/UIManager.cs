@@ -10,10 +10,10 @@ public class UIManager : ManagerBase
    
     protected override void Setup()
     {
-        SetView();
+        AddView();
     }
 
-    void SetView()
+    void AddView()
     {
         foreach (UIView view in _canvas.GetComponentsInChildren<UIView>())
         {

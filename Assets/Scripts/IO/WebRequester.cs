@@ -6,12 +6,12 @@ using UnityEngine.Networking;
 
 public class WebRequester
 {
-    Action<SheetData> _action;
+    Action<SheetModel> _action;
     UnityWebRequest _request;
 
     const string HTTP = "https://script.google.com/macros/s/";
     const string GASKey = "AKfycbw9WtV_pn1L-pbYLZ-VrsQLSW1wvGXSDgPq3doF8AfdF5HBtG04tUWWVLKOon1_TF_p";
-    public WebRequester(string sheetName, Action<SheetData> action)
+    public WebRequester(string sheetName, Action<SheetModel> action)
     {
         string path = CreatePath(sheetName);
 
@@ -37,7 +37,7 @@ public class WebRequester
     IEnumerator Run()
     {
         yield return _request.SendWebRequest();
-        SheetData data = JsonUtility.FromJson<SheetData>(_request.downloadHandler.text);
+        SheetModel data = JsonUtility.FromJson<SheetModel>(_request.downloadHandler.text);
         _action.Invoke(data);
     }
 }

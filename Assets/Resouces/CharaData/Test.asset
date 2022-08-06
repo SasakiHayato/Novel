@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3549ddae81c03543a55f0975c0696ce, type: 3}
   m_Name: Test
   m_EditorClassIdentifier: 
-  _name: Test
-  _modelData:
+  _charaName: Test
+  _faceData:
     _default: {fileID: 0}
+    _silhouette: {fileID: 0}

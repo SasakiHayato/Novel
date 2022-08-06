@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public enum PictureType
+public enum FaceType
 {
     Default = 0,
     Silhouette = 1,
@@ -10,25 +10,25 @@ public enum PictureType
 public class CharaModelData : ScriptableObject
 {
     [SerializeField] string _charaName;
-    [SerializeField] PictureData _pictureData;
+    [SerializeField] FaceData _faceData;
 
-    public Sprite GetData(PictureType type)
+    public Sprite GetData(FaceType type)
     {
-        return _pictureData.Send(type);
+        return _faceData.Send(type);
     }
 
     [System.Serializable]
-    public class PictureData
+    public class FaceData
     {
         [SerializeField] Sprite _default;
         [SerializeField] Sprite _silhouette;
 
-        public Sprite Send(PictureType type)
+        public Sprite Send(FaceType type)
         {
             switch (type)
             {
-                case PictureType.Default: return _default;
-                case PictureType.Silhouette: return _silhouette;
+                case FaceType.Default: return _default;
+                case FaceType.Silhouette: return _silhouette;
             }
 
             return null;
