@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class GameViewer : MonoBehaviour
@@ -16,7 +17,7 @@ public class GameViewer : MonoBehaviour
         RequestSheet();
 
         CallBack += SetData;
-        CallBack += ViewData; 
+        CallBack += ModelData; 
     }
 
     void OnDestroy()
@@ -30,9 +31,17 @@ public class GameViewer : MonoBehaviour
 
         SetName(ui);
         SetText(ui);
+        SetPosition(ui);
+
+        bool hasEvent = _dataAnalysis.HasEvent(_sheetData);
+
+        if (hasEvent)
+        {
+            SetEventInfo(ui);
+        }
     }
 
-    void ViewData()
+    void ModelData()
     {
         UIManager ui = GameManager.Instance.GetManager<UIManager>(nameof(UIManager));
 
@@ -41,14 +50,46 @@ public class GameViewer : MonoBehaviour
 
     void SetName(UIManager ui)
     {
-        string name = _dataAnalysis.Name(_sheetData);
+        string name = _dataAnalysis.ViewName(_sheetData);
         ui.CallBackView("Name", new object[] { name });
+    }
+
+    void SetPosition(UIManager ui)
+    {
+        string name = _dataAnalysis.Talker(_sheetData);
+        FaceType faceType = _dataAnalysis.Face(_sheetData);
+        PositionType position = _dataAnalysis.Position(_sheetData);
+
+        StandPresenter stand = ui.CallBackPresenter<StandPresenter>("StandPsition");
+        stand.SetTaker(name, faceType);
+        stand.SetPosition(position);
     }
 
     void SetText(UIManager ui)
     {
         string text = _dataAnalysis.Text(_sheetData);
         ui.CallBackView("Text", new object[] { text });
+    }
+
+    //aaaaaaaa
+    void SetEventInfo(UIManager ui)
+    {
+        List<EventInfoData> dataList = _dataAnalysis.EventInfo(_sheetData);
+
+        foreach (EventInfoData data in dataList)
+        {
+            FadeEventData fadeData = data as FadeEventData;
+            UserInputEventData inputData = data as UserInputEventData;
+
+            if (fadeData != null)
+            {
+
+            }
+            else if (inputData != null)
+            {
+
+            }
+        }
     }
 
     void RequestSheet()

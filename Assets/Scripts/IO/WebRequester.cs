@@ -10,7 +10,7 @@ public class WebRequester
     UnityWebRequest _request;
 
     const string HTTP = "https://script.google.com/macros/s/";
-    const string GASKey = "AKfycbwe7Y9whiL2OKu5frzkETFx1ARwiIF2gN_6WzE5tv6pEE05ZBsQmSoajlicBY1mvkmH";
+    const string DeployKey = "AKfycbyZvRCKKblQxduyRd-DJeZfEG38ZLb8G00Z-O7iXEIW3t2TV8jbbzdCDgmDQuHLICMf";
 
     public WebRequester(string sheetName, Action<SheetModel> action)
     {
@@ -23,7 +23,7 @@ public class WebRequester
     string CreatePath(string sheetName)
     {
         StringBuilder builder = new StringBuilder();
-        builder.Append(HTTP + GASKey);
+        builder.Append(HTTP + DeployKey);
         builder.Append("/exec?sheet=");
         builder.Append(sheetName);
 

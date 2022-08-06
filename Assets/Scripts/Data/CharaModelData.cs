@@ -13,9 +13,10 @@ public class CharaModelData : ScriptableObject
     [SerializeField] Vector2 _offsetRect;
     [SerializeField] FaceData _faceData;
 
+    public string CharaName => _charaName;
     public Vector2 OffsetRect => _offsetRect;
 
-    public Sprite GetData(FaceType type)
+    public Sprite GetFaceData(FaceType type)
     {
         return _faceData.Send(type);
     }

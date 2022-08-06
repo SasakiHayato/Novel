@@ -1,3 +1,10 @@
+public enum PositionType
+{
+    CENTER,
+    RIGHT,
+    LEFT,
+}
+
 [System.Serializable]
 public class SheetModel 
 {
