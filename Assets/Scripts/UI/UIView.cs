@@ -15,5 +15,5 @@ public abstract class UIView : MonoBehaviour
 
     protected abstract void Setup();
 
-    public abstract void CallBack();
+    public abstract void CallBack(object[] datas);
 }

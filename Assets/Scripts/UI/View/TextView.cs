@@ -13,8 +13,8 @@ public class TextView : UIView
         _gui.text = "";
     }
 
-    public override void CallBack()
+    public override void CallBack(object[] datas)
     {
-        
+        _gui.text = (string)datas[0];
     }
 }

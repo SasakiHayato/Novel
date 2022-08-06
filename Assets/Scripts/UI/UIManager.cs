@@ -21,10 +21,10 @@ public class UIManager : ManagerBase
         } 
     }
 
-    public void CallBackView(string path)
+    public void CallBackView(string path, object[] datas)
     {
         UIView view = _viewDic.FirstOrDefault(v => v.Key == path).Value;
-        view?.CallBack();
+        view?.CallBack(datas);
     }
 
     protected override void Dispose()

@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
 
 public class NameView : UIView
@@ -13,8 +10,8 @@ public class NameView : UIView
         _gui.text = "";
     }
 
-    public override void CallBack()
+    public override void CallBack(object[] datas)
     {
-        throw new System.NotImplementedException();
+        _gui.text = (string)datas[0];
     }
 }
