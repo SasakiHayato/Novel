@@ -15,7 +15,8 @@ public class GameViewer : MonoBehaviour
         GameManager.Instance.Setup();
         RequestSheet();
 
-        CallBack = OnNext;
+        CallBack += SetData;
+        CallBack += ViewData; 
     }
 
     void OnDestroy()
@@ -23,7 +24,7 @@ public class GameViewer : MonoBehaviour
         GameManager.Instance.Dispose();
     }
 
-    void OnNext()
+    void SetData()
     {
         UIManager ui = GameManager.Instance.GetManager<UIManager>(nameof(UIManager));
 
@@ -31,10 +32,17 @@ public class GameViewer : MonoBehaviour
         SetText(ui);
     }
 
+    void ViewData()
+    {
+        UIManager ui = GameManager.Instance.GetManager<UIManager>(nameof(UIManager));
+
+        ui.CallBackModel("Text");
+    }
+
     void SetName(UIManager ui)
     {
-        string[] name = _dataAnalysis.Name(_sheetData);
-        ui.CallBackView("Name", new object[] { name[0] });
+        string name = _dataAnalysis.Name(_sheetData);
+        ui.CallBackView("Name", new object[] { name });
     }
 
     void SetText(UIManager ui)

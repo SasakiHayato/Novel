@@ -10,7 +10,10 @@ public enum FaceType
 public class CharaModelData : ScriptableObject
 {
     [SerializeField] string _charaName;
+    [SerializeField] Vector2 _offsetRect;
     [SerializeField] FaceData _faceData;
+
+    public Vector2 OffsetRect => _offsetRect;
 
     public Sprite GetData(FaceType type)
     {

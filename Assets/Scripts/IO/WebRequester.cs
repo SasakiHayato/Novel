@@ -10,7 +10,7 @@ public class WebRequester
     UnityWebRequest _request;
 
     const string HTTP = "https://script.google.com/macros/s/";
-    const string GASKey = "AKfycbz7rejG4nAxLi3ddH_ZiSoWCfLR9FD-FMr_cXkWd9WCUJXwNvOOStXzMT5ysSbX9wz3";
+    const string GASKey = "AKfycbwe7Y9whiL2OKu5frzkETFx1ARwiIF2gN_6WzE5tv6pEE05ZBsQmSoajlicBY1mvkmH";
 
     public WebRequester(string sheetName, Action<SheetModel> action)
     {

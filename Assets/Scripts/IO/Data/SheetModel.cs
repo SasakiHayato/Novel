@@ -7,7 +7,7 @@ public class SheetModel
     [System.Serializable]
     public class Model
     {
-        public string Talker;
+        public string Talker_ViewName;
         public string FaceType;
         public string Text;
         public string StandType;

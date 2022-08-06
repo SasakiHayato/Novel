@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
 
 public class TextView : UIView
@@ -15,6 +12,8 @@ public class TextView : UIView
 
     public override void CallBack(object[] datas)
     {
+        _gui.maxVisibleCharacters = 0;
+
         _gui.text = (string)datas[0];
     }
 }
