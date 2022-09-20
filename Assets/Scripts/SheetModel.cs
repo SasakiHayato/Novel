@@ -14,13 +14,13 @@ public class SheetModel
     [System.Serializable]
     public class Model
     {
-        public string Talker_ViewName;
-        public string FaceType;
+        public string Actor_ViewName;
         public string Text;
-        public string StandType;
+        public string Actor_FaceType;
         public string PsitionType;
-        public string HasEvent;
+        public string Talker;
         public string EventInfo;
         public string CharaMoveEvent;
+        public string SoundEvent;
     }
 }
