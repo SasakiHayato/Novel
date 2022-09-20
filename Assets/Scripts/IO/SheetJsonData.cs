@@ -5,14 +5,17 @@ public enum PositionType
     LEFT,
 }
 
+/// <summary>
+/// スプレッドシートのデータ
+/// </summary>
 [System.Serializable]
-public class SheetModel 
+public class SheetJsonData 
 {
     public string Version;
-    public Model[] Data;
+    public JsonData[] Data;
 
     [System.Serializable]
-    public class Model
+    public class JsonData
     {
         public string Actor_ViewName;
         public string Text;
