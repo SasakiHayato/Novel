@@ -23,7 +23,5 @@ public class SheetJsonData
         public string PsitionType;
         public string Talker;
         public string EventInfo;
-        public string CharaMoveEvent;
-        public string SoundEvent;
     }
 }
