@@ -10,7 +10,7 @@ public abstract class ParentWindow : MonoBehaviour
 
     public string Path => _path;
 
-    public void Initalize()
+    public void Setup()
     {
         _childWindowList = new List<ChildWindow>();
 

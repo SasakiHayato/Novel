@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameViewer : MonoBehaviour
 {
     [SerializeField] string _gebugSheetName;
+    [SerializeField] UserInputter _userInputter;
     [SerializeField] GamePresenter _gamePresenter;
 
     ChapterOperator _chapterOperator;
@@ -14,24 +15,45 @@ public class GameViewer : MonoBehaviour
     void Start()
     {
         _chapterOperator = new ChapterOperator();
+        _chapterOperator.Initalize();
 
-        if (_gebugSheetName != null)
+        if (_gebugSheetName != "")
         {
             Request(_gebugSheetName);
         }
+
+        _userInputter.SetAction(() => OnNext());
     }
+
+    bool a = false;
 
     void OnNext()
     {
+        if (!a)
+        {
+            a = true;
+            return;
+        }
+
         int currentID = _chapterOperator.CurrentID;
-        SheetJsonData.JsonData data = _sheetData.Data[currentID];
-        _gamePresenter.OnNext(data);
+        _chapterOperator.SetNextID();
+
+        try
+        {
+            SheetJsonData.JsonData data = _sheetData.Data[currentID];
+            _gamePresenter.OnNext(data);
+        }
+        catch
+        {
+            Debug.Log("チャプターが終了しました。");
+        }
     }
 
     void Request(string sheetName)
     {
         _chapterOperator.Initalize();
         WebRequester requester = new WebRequester(sheetName, Get);
+        requester.Request(this);
     }
 
     void Get(SheetJsonData data)

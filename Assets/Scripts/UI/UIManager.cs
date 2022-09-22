@@ -20,11 +20,11 @@ public class UIManager : ManagerBase
 
     public void UpdateView(string parentPath, string childPath, object[] data = null)
     {
-        List<ParentWindow> _parentWindowList = _masterWindow.ParentWindowList;
+        List<ParentWindow> parentWindowList = _masterWindow.ParentWindowList;
 
         try
         {
-            ParentWindow window = _parentWindowList.First(p => p.Path == parentPath);
+            ParentWindow window = parentWindowList.First(p => p.Path == parentPath);
             window.CallBack(childPath, data);
         }
         catch

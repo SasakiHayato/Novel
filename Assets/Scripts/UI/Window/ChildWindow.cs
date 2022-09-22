@@ -15,6 +15,7 @@ public abstract class ChildWindow : MonoBehaviour
 
     public void Active(bool isActive)
     {
+        Debug.Log(isActive);
         gameObject.SetActive(isActive);
     }
 

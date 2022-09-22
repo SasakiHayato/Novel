@@ -20,6 +20,7 @@ public class MasterWindow : MonoBehaviour
 
             if (window != null)
             {
+                window.Setup();
                 _parentWindowList.Add(window);
             }
         }

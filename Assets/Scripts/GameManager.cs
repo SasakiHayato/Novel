@@ -5,10 +5,25 @@ using UnityEngine;
 
 public class GameManager
 {
-    public static GameManager Instance = s_instance;
-    private static GameManager s_instance = new GameManager();
+    public static GameManager Instance
+    {
+        get
+        {
+            if (s_instance == null)
+            {
+                s_instance = new GameManager();
+            }
+
+            return s_instance;
+        }
+    }
+    private static GameManager s_instance;
 
     Dictionary<string, ManagerBase> _managerDic = new Dictionary<string, ManagerBase>();
+
+    public string UserName { get; private set; }
+
+    public void SetUserName(string name) => UserName = name;
 
     public void AddManager<Manager>(Manager manager, string path) where Manager : ManagerBase
     {
