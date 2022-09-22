@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9440b28f6509d2e4ab4dd8172865c311, type: 3}
   m_Name: BackViewData
   m_EditorClassIdentifier: 
-  _backViewDataList: []
+  _backViewDataList:
+  - _path: 
+    _sprite: {fileID: 0}
+  - _path: 
+    _sprite: {fileID: 0}
