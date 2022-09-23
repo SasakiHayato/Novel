@@ -13,7 +13,7 @@ public class WebRequester
     UnityWebRequest _request;
 
     const string HTTP = "https://script.google.com/macros/s/";
-    const string DeployKey = "AKfycbybUFbHe9koMeUSQmBY-Sfp_rjaCnblygsWzMsOZLiHAx2zNxxzndIeTLnyYjYfF-1h";
+    const string DeployID = "AKfycbxJj99YsX_NTeouY1QaWoYW5MCj-j5IuuBMTYicSQUFg9dtp8mfLUlBrH6tAPgSGEY";
 
     /// <summary>
     /// リクエスト作成
@@ -32,7 +32,7 @@ public class WebRequester
     string CreatePath(string sheetName)
     {
         StringBuilder builder = new StringBuilder();
-        builder.Append(HTTP + DeployKey);
+        builder.Append(HTTP + DeployID);
         builder.Append("/exec?sheet=");
         builder.Append(sheetName);
 
