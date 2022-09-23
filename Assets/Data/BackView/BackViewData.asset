@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: BackViewData
   m_EditorClassIdentifier: 
   _backViewDataList:
-  - _path: 
-    _sprite: {fileID: 0}
-  - _path: 
-    _sprite: {fileID: 0}
+  - _path: Test
+    _sprite: {fileID: 21300000, guid: b3ae3346871dfb14cb001993c22facf3, type: 3}
+  - _path: Null
+    _sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}

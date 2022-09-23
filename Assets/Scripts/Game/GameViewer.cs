@@ -25,6 +25,13 @@ public class GameViewer : MonoBehaviour
         }
 
         _userInputter.SetAction(() => OnNext());
+
+        SoundRequester requester = new SoundRequester();
+        requester
+            .SetPath("Test")
+            .SetType(SoundType.BGM)
+            .IsRequest();
+
     }
 
     void OnNext()
