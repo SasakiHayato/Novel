@@ -35,8 +35,6 @@ public class GamePresenter : MonoBehaviour
             _currentActorModel.UpdatePosition(actor);
         }
 
-
-
         _currentActorModel.Save();
     }
 
@@ -53,6 +51,8 @@ public class GamePresenter : MonoBehaviour
 
         ui.UpdateView("Game", "MSG", new object[] { data.Text });
         ui.UpdateView("Game", "Name", new object[] { data.Talker });
+
+        ui.UpdateActorView(_currentActorModel.GetCurrentActorsKey());
         ui.UpdateBackView(data.BackView);
     }
 

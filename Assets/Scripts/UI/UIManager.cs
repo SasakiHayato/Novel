@@ -13,7 +13,7 @@ public class UIManager : ManagerBase
     protected override ManagerBase Setup()
     {
         _masterWindow.Setup();
-
+        
         return this;
     }
 
@@ -43,6 +43,17 @@ public class UIManager : ManagerBase
         Sprite sprite = _backViewDataBase.GetData(path);
 
         UpdateView("Game", "BackView", new object[] { sprite });
+    }
+
+    public void UpdateActorView(string[] keys)
+    {
+        foreach (string key in keys)
+        {
+            ActorDataBase data = _actorDataBaseList.First(a => a.Path == key);
+            CurrentActorData actorData = GameManager.Instance.GetCurrrentActorData(key);
+
+            UpdateView("Game", "Actor", new object[] { key, data });
+        }
     }
 
     public void PanelActive(string path, bool isActive)

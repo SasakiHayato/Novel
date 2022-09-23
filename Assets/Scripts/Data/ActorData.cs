@@ -11,10 +11,8 @@ public enum FaceType
 [System.Serializable]
 public class ActorData 
 {
-    [SerializeField] string _path;
     [SerializeField] List<FaceData> _faceDataList;
 
-    public string Path => _path;
     public Sprite GetSprite(FaceType faceType)
     {
         try

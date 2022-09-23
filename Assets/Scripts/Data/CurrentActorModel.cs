@@ -20,6 +20,18 @@ public class CurrentActorModel
         }
     }
 
+    public string[] GetCurrentActorsKey()
+    {
+        List<string> actorKeyList = new List<string>();
+
+        foreach (CurrentActorData item in _currentActorDataList)
+        {
+            actorKeyList.Add(item.ActorKey);
+        }
+
+        return actorKeyList.ToArray();
+    }
+
     CurrentActorData CreateActor(string path)
     {
         CurrentActorData data = new CurrentActorData();
