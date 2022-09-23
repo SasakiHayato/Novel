@@ -22,9 +22,7 @@ public class GameManager
     Dictionary<string, ManagerBase> _managerDic = new Dictionary<string, ManagerBase>();
     List<CurrentActorData> _currentActorList;
 
-    public string UserName { get; private set; }
-
-    
+    public string UserName { get; private set; } = "ƒQƒXƒg";
 
     public void SetUserName(string name) => UserName = name;
 

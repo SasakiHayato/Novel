@@ -17,22 +17,7 @@ public class ViewText : ChildWindow
 
     string SetEvent(string text)
     {
-        if (text == "[Close]")
-        {
-            text = text.Replace("[Close]", "");
-            Active(false);
-        }
-
-        if (text == "[Open]")
-        {
-            text = text.Replace("[Open]", "");
-            Active(true);
-        }
-
-        if (text == "[N]")
-        {
-            text = text.Replace("[N]", GameManager.Instance.UserName);
-        }
+        text = text.Replace("[N]", GameManager.Instance.UserName);
 
         return text;
     }
