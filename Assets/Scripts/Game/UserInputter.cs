@@ -18,6 +18,8 @@ public class UserInputter : MonoBehaviour
             .ThrottleFirst(TimeSpan.FromSeconds(0.5f))
             .Subscribe(_ => _action?.Invoke())
             .AddTo(this);
+
+        _reactiveBool.SkipLatestValueOnSubscribe();
     }
 
     public void SetAction(Action action) => _action = action;

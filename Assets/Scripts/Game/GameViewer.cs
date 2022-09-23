@@ -17,6 +17,8 @@ public class GameViewer : MonoBehaviour
         _chapterOperator = new ChapterOperator();
         _chapterOperator.Initalize();
 
+        _gamePresenter.Initalize();
+
         if (_gebugSheetName != "")
         {
             Request(_gebugSheetName);
@@ -25,33 +27,26 @@ public class GameViewer : MonoBehaviour
         _userInputter.SetAction(() => OnNext());
     }
 
-    bool a = false;
-
     void OnNext()
     {
-        if (!a)
-        {
-            a = true;
-            return;
-        }
-
         int currentID = _chapterOperator.CurrentID;
-        _chapterOperator.SetNextID();
 
         try
         {
             SheetJsonData.JsonData data = _sheetData.Data[currentID];
             _gamePresenter.OnNext(data);
+
+            _chapterOperator.SetNextID();
         }
         catch
         {
             Debug.Log("チャプターが終了しました。");
+            _chapterOperator.Initalize();
         }
     }
 
     void Request(string sheetName)
     {
-        _chapterOperator.Initalize();
         WebRequester requester = new WebRequester(sheetName, Get);
         requester.Request(this);
     }
