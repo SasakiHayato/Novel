@@ -33,6 +33,11 @@ public class GameManager
         _currentActorList = list;
     }
 
+    public CurrentActorData GetCurrrentActorData(string path)
+    {
+        return _currentActorList.First(c => c.ActorKey == path);
+    }
+
     public void AddManager<Manager>(Manager manager, string path) where Manager : ManagerBase
     {
         _managerDic.Add(path, manager);

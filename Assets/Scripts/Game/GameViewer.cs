@@ -31,12 +31,14 @@ public class GameViewer : MonoBehaviour
     {
         int currentID = _chapterOperator.CurrentID;
 
+        SheetJsonData.JsonData data = _sheetData.Data[currentID];
+        _gamePresenter.OnNext(data);
+
+        _chapterOperator.SetNextID();
+
         try
         {
-            SheetJsonData.JsonData data = _sheetData.Data[currentID];
-            _gamePresenter.OnNext(data);
-
-            _chapterOperator.SetNextID();
+            
         }
         catch
         {

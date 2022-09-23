@@ -3,6 +3,8 @@ public enum PositionType
     CENTER,
     RIGHT,
     LEFT,
+
+    NONE,
 }
 
 /// <summary>
@@ -20,7 +22,7 @@ public class SheetJsonData
         public string Actor_ViewName;
         public string Text;
         public string Actor_FaceType;
-        public string PsitionType;
+        public string PositionType;
         public string Talker;
         public string EventInfo;
     }

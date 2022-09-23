@@ -36,6 +36,21 @@ public class CurrentActorModel
         return _currentActorDataList.First(c => c.ActorKey == key);
     }
 
+    public void UpdateViewName(string path)
+    {
+        string[] key = path.Split("_");
+        CurrentActorData actorData = FindActor(key[0]);
+
+        try
+        {
+            actorData.SetViewName(key[1]);
+        }
+        catch
+        {
+            Debug.Log($"‚È‚Ü‚¦‚É•ÏX‚ª‚ ‚è‚Ü‚¹‚ñ‚Å‚µ‚½B‘ÎÛŽÒ => {key[0]}");
+        }        
+    }
+
     public void UpdateFaceData(string path)
     {
         string[] key = path.Split("_");
@@ -49,9 +64,22 @@ public class CurrentActorModel
     public void UpdatePosition(string path)
     {
         string[] key = path.Split("_");
-
-        PositionType type = (PositionType)Enum.Parse(typeof(PositionType), key[1]);
         CurrentActorData actorData = FindActor(key[0]);
+
+        PositionType type = PositionType.NONE;
+
+        if (key[1].Contains("C"))
+        {
+            type = PositionType.CENTER;
+        }
+        else if (key[1].Contains("R"))
+        {
+            type = PositionType.RIGHT;
+        }
+        else if (key[1].Contains("L"))
+        {
+            type = PositionType.LEFT;
+        }
 
         actorData.SetPosition(type);
     }

@@ -15,22 +15,27 @@ public class GamePresenter : MonoBehaviour
     {
         string[] actorViewNameArray = data.Actor_ViewName.Split('\n');
         string[] actorFaceTypeArray = data.Actor_FaceType.Split('\n');
-        string[] positionTypeArray = data.PsitionType.Split('\n');
+        string[] positionTypeArray = data.PositionType.Split('\n');
 
         foreach (string actor in actorViewNameArray)
         {
             _currentActorModel.SetActor(actor);
+            _currentActorModel.UpdateViewName(actor);
         }
 
         foreach (string actor in actorFaceTypeArray)
         {
+            if (actor == "") continue;
             _currentActorModel.UpdateFaceData(actor);
         }
 
         foreach (string actor in positionTypeArray)
         {
+            if (actor == "") continue;
             _currentActorModel.UpdatePosition(actor);
         }
+
+
 
         _currentActorModel.Save();
     }

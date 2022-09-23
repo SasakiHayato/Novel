@@ -12,6 +12,8 @@ public class ViewName : ChildWindow
 
     public override void CallBack(object[] data)
     {
-        _txt.text = (string)data[0];
+        CurrentActorData actorData = GameManager.Instance.GetCurrrentActorData((string)data[0]);
+
+        _txt.text = actorData.ViewName;
     }
 }
