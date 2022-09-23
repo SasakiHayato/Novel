@@ -50,8 +50,10 @@ public class GamePresenter : MonoBehaviour
     void UpdateUI(SheetJsonData.JsonData data)
     {
         UIManager ui = GameManager.Instance.GetManager<UIManager>(nameof(UIManager));
+
         ui.UpdateView("Game", "MSG", new object[] { data.Text });
         ui.UpdateView("Game", "Name", new object[] { data.Talker });
+        ui.UpdateBackView(data.BackView);
     }
 
     public void Initalize()

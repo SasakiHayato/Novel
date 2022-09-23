@@ -24,6 +24,7 @@ public class SheetJsonData
         public string Actor_FaceType;
         public string PositionType;
         public string Talker;
+        public string BackView;
         public string EventInfo;
     }
 }

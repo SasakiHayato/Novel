@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
@@ -31,6 +30,19 @@ public class UIManager : ManagerBase
         {
             Debug.Log($"指定したParentWindowパスがありません。{parentPath} is not found");
         }
+    }
+
+    public void UpdateBackView(string path)
+    {
+        if (path == "")
+        {
+            Debug.Log("背景データに変更がありませんでした。");
+            return;
+        }
+
+        Sprite sprite = _backViewDataBase.GetData(path);
+
+        UpdateView("Game", "BackView", new object[] { sprite });
     }
 
     public void PanelActive(string path, bool isActive)
