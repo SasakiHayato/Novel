@@ -7,17 +7,39 @@ public class GamePresenter : MonoBehaviour
     public void OnNext(SheetJsonData.JsonData data)
     {
         UpdateActorData(data);
+        SetEventInfo(data);
         UpdateUI(data);
     }
 
     void UpdateActorData(SheetJsonData.JsonData data)
     {
-        string[] viewNameArray = data.Actor_ViewName.Split('\n');
+        string[] actorViewNameArray = data.Actor_ViewName.Split('\n');
+        string[] actorFaceTypeArray = data.Actor_FaceType.Split('\n');
+        string[] positionTypeArray = data.PsitionType.Split('\n');
 
-        foreach (string name in viewNameArray)
+        foreach (string actor in actorViewNameArray)
         {
-            _currentActorModel.FindActor(name);
+            _currentActorModel.SetActor(actor);
         }
+
+        foreach (string actor in actorFaceTypeArray)
+        {
+            _currentActorModel.UpdateFaceData(actor);
+        }
+
+        foreach (string actor in positionTypeArray)
+        {
+            _currentActorModel.UpdatePosition(actor);
+        }
+
+        _currentActorModel.Save();
+    }
+
+    void SetEventInfo(SheetJsonData.JsonData data)
+    {
+        string[] eventArray = data.EventInfo.Split('\n');
+
+        
     }
 
     void UpdateUI(SheetJsonData.JsonData data)

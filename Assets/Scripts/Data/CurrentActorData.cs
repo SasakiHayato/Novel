@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class CurrentActorData
 {
-    public string Path { get; private set; }
-    public string Name { get; private set; }
+    public string ActorKey { get; private set; }
+    public string ViewName { get; private set; }
+    public FaceType FaceType { get; private set; }
+    public PositionType PositionType { get; private set; }
 
-    public void SetPath(string path) => Path = path;
-    public void SetName(string name) => Name = name;
+    public void SetActorKey(string path) => ActorKey = path;
+    public void SetViewName(string name) => ViewName = name;
+    public void SetFaceType(FaceType faceType) => FaceType = faceType;
+    public void SetPosition(PositionType positionType) => PositionType = positionType;
 }
